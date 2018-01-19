@@ -78,20 +78,20 @@ val w = anag.saveAsTextFile("file:/home/cloudera/anagram3")
 #### Build a RDD from text file (twitter compte followed by another compte) :
 
 ```scala
-val twitter = sc.textFile("file:/home/cloudera/twitter.txt")
+val Twitter = sc.textFile("file:/home/cloudera/twitter.txt")
 ```
 
 #### Get the number of arcs between twitter uers :
 
 ```scala
-twitter.count()
+Twitter.count()
 ```
 
 #### Count the number of Twitter users in this file :
 
 ```scala
 // split text on users
-val usersDouble = twitter.flatMap(line => line.split(" "))
+val usersDouble = Twitter.flatMap(line => line.split(" "))
 // delete the user ID double
 val users = usersDouble.distinct().count()
  ```
@@ -100,7 +100,7 @@ val users = usersDouble.distinct().count()
 
 ```scala
 // generate (user ID , 1)
-val degres = twitter.map(x=>(x.split(" ")(0),1))
+val degres = Twitter.map(x=>(x.split(" ")(0),1))
 // reduce by Key
 val degre = degres.reduceByKey(_ + _)
 // save in folder
@@ -111,13 +111,13 @@ val w = degre.saveAsTextFile("file:/home/cloudera/degre")
 
 ```scala
 // generate (user ID , 1)
-val degres = twitter.map(x=>(x.split(" ")(0),1))
+val degres = Twitter.map(x=>(x.split(" ")(0),1))
 // reduce by Key
 val degre = degres.reduceByKey(_ + _)
 // filerd users how has 1000 followers
-val filtred = degre.filter{case(x,y)=>y>=1000}
+val Filtred = degre.filter{case(x,y)=>y>=1000}
 // count users how has 1000 followers
-filtred.count()
+Filtred.count()
 // save users how has 1000 followers
-val sup = filtred.saveAsTextFile("file:/home/cloudera/1000")
+val save = Filtred.saveAsTextFile("file:/home/cloudera/1000")
 ```
