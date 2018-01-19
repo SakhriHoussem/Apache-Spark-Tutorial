@@ -32,7 +32,7 @@ Alice.first()
 // get lines with a specific word
 val lignes = Alice.filter(line => line.contains("walking"))
 // save in folder
-val sup = lignes.saveAsTextFile("file:/home/cloudera/walking")
+val sup = lignes.saveAsTextFile("file:<folder path>/walking")
 lignes.collect()
 ```
 
@@ -70,7 +70,7 @@ val anag = wordl.reduceByKey((a,b) => if(a.contains(b)) a else a + ", " + b)
 // view RDD content
 anag.collect
 // save in folder
-val w = anag.saveAsTextFile("file:/home/cloudera/anagram3")
+val save = anag.saveAsTextFile("file:<folder path>/anagram")
   ```
 
 ### Example2 : 
@@ -78,7 +78,7 @@ val w = anag.saveAsTextFile("file:/home/cloudera/anagram3")
 #### Build a RDD from text file (twitter compte followed by another compte) :
 
 ```scala
-val Twitter = sc.textFile("file:/home/cloudera/twitter.txt")
+val Twitter = sc.textFile("file:<folder path>/twitter.txt")
 ```
 
 #### Get the number of arcs between twitter uers :
