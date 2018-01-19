@@ -78,7 +78,7 @@ val save = anag.saveAsTextFile("file:<folder path>/anagram")
 #### Build a RDD from text file (twitter compte followed by another compte) :
 
 ```scala
-val Twitter = sc.textFile("file:<folder path>/twitter.txt")
+val Twitter = sc.textFile("file:<folder path>/input/twitter.txt")
 ```
 
 #### Get the number of arcs between twitter uers :
