@@ -1,9 +1,9 @@
-# Spark in Practice
+# apache spark tutorial
 
-## Learn How Spark Work in Simple Examples
+## Learn How Apache Spark Work in Simple Examples
 
 ```shell
-# Spark startup commande
+# Apache Spark startup commande
 spark-shell
 ```
 
